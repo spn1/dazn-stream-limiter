@@ -1,9 +1,27 @@
 {
     "env": {
         "browser": false,
+        "node": true,
         "es6": true
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
     },
     "extends": "eslint:recommended",
     "rules": {
+        "no-console": 0,
+        "indent": [
+            2,
+            4
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "semi": [
+            2,
+            "always"
+        ]
     }
 }
