@@ -4,11 +4,12 @@
         "node": true,
         "es6": true
     },
+    "plugins": ["jest"],
     "parserOptions": {
         "sourceType": "module",
         "allowImportExportEverywhere": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "plugin:jest/recommended"],
     "rules": {
         "no-console": 0,
         "indent": [
@@ -22,6 +23,11 @@
         "semi": [
             2,
             "always"
-        ]
+        ],
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
     }
 }

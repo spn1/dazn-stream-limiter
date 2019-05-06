@@ -4,14 +4,14 @@ import express from 'express';
 import routes from './routes';
 
 const app = express();
+const PORT = process.env.PORT;
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
+app.get('/ping', (req, res) => {
+    res.send('pong');
 });
 
 app.use('/stream-count/:userId', routes.streamCountChecker);
 
-app.listen(process.env.PORT, () => {
-    console.log('Running STREAM-LIMITER App...');
-    console.log(`Max Streams for Basic User: ${process.env.BASIC_USER_MAX_STREAMS}`); 
+app.listen(PORT, () => {
+    console.log(`Running STREAM-LIMITER App on PORT ${PORT}`);
 });
