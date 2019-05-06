@@ -1,8 +1,7 @@
-import users from '../data/users';
+import getUsers from '../services/user-service';
 
-const userCheck = (id) => {
-    // Would send request to check database, but since it is out of the scope of this test we will just check the static data file
-    console.log(users);
+const userCheck = async (id) => {
+    const users = await getUsers();
 
     return users.find((user) => {
         return user.id === id;
@@ -28,8 +27,6 @@ export default async (req, res) => {
                 error: 'User Not Found'
             });
         };
-
-        console.log(`${user.currentStreams} >= ${process.env.BASIC_USER_MAX_STREAMS} ? ${user.currentStreams >= process.env.BASIC_USER_MAX_STREAMS}`)
 
         return res.send({
             limitReached: user.currentStreams >= process.env.BASIC_USER_MAX_STREAMS
