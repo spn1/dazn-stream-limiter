@@ -1,3 +1,27 @@
 # Web Stream Limiter
 
 Node JS application to limit the number of streams a user can have active at any one time.
+
+### Installation and Startup
+
+ - Clone the repository
+ - Run `npm install`
+ - Run `npm start` to startup the application
+
+### Usage
+
+Running `npm start` will start the express app on localhost and the port you defined in the .env file (added to the repo for your convenience): `http://localhost:3000`. This exposes the endpoint `/stream-count/:userId`. Query this endpoint with a user id to receive a json object on whether that user is below or above their stream limit, or if any error occurred server side.
+
+For Example:
+
+ - `userId=1` has 0 streams active, so this would return `limitReached=false`, indicating that they have not reached their stream limit and can open more streams.
+ - `userId=2` has 3 streams active, so this would return `limitReached=true`, indicating that they have reached their stream limit and cannot open any more streams.
+
+### Improvements
+
+ - In a live application, I would expect the user data source to be a database, however since this was outside the scope of this task, I created a static data file which provides user data: `/src/data/users.js`
+ 
+ - I could not fully complete the unit tests I wanted to write, specifically regarding what would happen if the user service could not get any data regarding the users (e.g. if a database connection could not be established).
+ 
+ ### Scaleability
+ 
