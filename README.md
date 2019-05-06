@@ -10,7 +10,7 @@ Node JS application to limit the number of streams a user can have active at any
 
 ### Usage
 
-Running `npm start` will start the express app on localhost and the port you defined in the .env file (added to the repo for your convenience): [http://localhost:3000](http://localhost:3000). This exposes the endpoint `/stream-count/:userId`. Query this endpoint with a user id to receive a json object on whether that user is below or above their stream limit, or if any error occurred server side.
+Running `npm start` will start the express app on localhost and the port you defined in the .env file (added to the repo for your convenience): [http://localhost:3000](http://localhost:3000). This exposes the endpoint `/stream-count/:userId`. Query this endpoint with a user id to receive a json object detailing whether that user has reached their stream limit, or if any error occurred server side.
 
 For Example:
 
