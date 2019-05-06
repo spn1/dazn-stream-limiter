@@ -1,5 +1,4 @@
 import streamCountChecker from '../routes/stream-count-checker';
-import getUsers from '../services/user-service';
 
 jest.mock('../services/user-service');
 

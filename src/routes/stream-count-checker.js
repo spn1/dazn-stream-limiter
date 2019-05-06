@@ -1,12 +1,4 @@
-import getUsers from '../services/user-service';
-
-const userCheck = async (id) => {
-    const users = await getUsers();
-
-    return users.find((user) => {
-        return user.id === id;
-    });
-};
+import getUser from '../services/user-service';
 
 export default async (req, res) => {
     const userId = req.params.userId;
@@ -19,7 +11,7 @@ export default async (req, res) => {
     }
 
     try {
-        const user = await userCheck(userId);
+        const user = await getUser(userId);
 
         if (!user) {
             return res.send({
